@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * @author winnie
@@ -111,5 +112,10 @@ public class DragDelActivity extends AppCompatActivity implements ItemTouchCallB
             mDelImage.setPadding(0, statusBarHeight, 0, 0);
             decorView.addView(mDelImage, params);
         }
+    }
+
+    @OnClick(R.id.tv_title)
+    public void onViewClicked() {
+        finish();
     }
 }
