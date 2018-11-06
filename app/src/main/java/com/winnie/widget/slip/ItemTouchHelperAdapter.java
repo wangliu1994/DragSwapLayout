@@ -1,4 +1,4 @@
-package com.winnie.widget;
+package com.winnie.widget.slip;
 
 /**
  * @author : winnie

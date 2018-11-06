@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".slip.SlipDelActivity" />
+        <activity android:name=".drag.DragDelActivity" />
+        <activity android:name=".swap.SwapActivity"></activity>
     </application>
 
 </manifest>

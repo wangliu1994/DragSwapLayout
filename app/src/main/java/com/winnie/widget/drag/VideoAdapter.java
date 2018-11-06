@@ -1,11 +1,12 @@
-package com.winnie.widget;
+package com.winnie.widget.drag;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.winnie.widget.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,8 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * @date : 2018/10/22
  * @desc
  */
-public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
-        implements ItemTouchHelperAdapter{
+public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     /**
      * 上下文
      */
@@ -35,26 +35,33 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
      */
     private List<String> mData;
 
-    public ListAdapter(Context context) {
+    public VideoAdapter(Context context) {
         mContext = context;
         mData = new ArrayList<>();
-        for(int i=0; i<= 20; i++){
-            mData.add("Item Data" + i);
+        for(int i=0; i< 4; i++){
+            mData.add("" + i);
         }
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.view_list_item, parent, false);
-        return new ListAdapter.ViewHolder(view);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.view_drag_list_item, parent, false);
+        return new VideoAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        String data = mData.get(position);
         if(holder instanceof ViewHolder){
             ViewHolder viewHolder = (ViewHolder) holder;
-            viewHolder.mTvText.setText(data);
+            String data = mData.get(position);
+            viewHolder.mTvNum.setText(data);
+            viewHolder.setSelected(position == mSelectedPos);
+            viewHolder.mItemView.setOnClickListener(v -> {
+                if(position != mSelectedPos) {
+                    mSelectedPos = position;
+                    notifyDataSetChanged();
+                }
+            });
         }
     }
 
@@ -63,33 +70,30 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return mData.size();
     }
 
-    @Override
-    public void onItemMove(int fromPosition, int toPosition) {
+    public void onItemSwap(int fromPosition, int toPosition) {
         Collections.swap(mData, fromPosition, toPosition);
         notifyItemMoved(fromPosition, toPosition);
     }
 
-    @Override
-    public void onItemDismiss(int position) {
-        if(mData.size() > position) {
-            mData.remove(position);
-            notifyItemRemoved(position);
-        }
+    public void onItemRemove(int position) {
+//        mData.remove(position);
+//        notifyItemRemoved(position);
+        mData.set(position, "已删除");
+        notifyItemChanged(position);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         private View mItemView;
-
-        TextView mTvText;
-        ImageView mIvDel;
-        TextView mTvDel;
+        private TextView mTvNum;
 
         public ViewHolder(View itemView) {
             super(itemView);
             mItemView = itemView;
-            mTvText = mItemView.findViewById(R.id.tv_text);
-            mIvDel = mItemView.findViewById(R.id.iv_del_img);
-            mTvDel = mItemView.findViewById(R.id.tv_del_text);
+            mTvNum = mItemView.findViewById(R.id.tv_num);
+        }
+
+        public void setSelected(boolean selected){
+            mItemView.setSelected(selected);
         }
     }
 }

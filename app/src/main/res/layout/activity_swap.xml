@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".swap.SwapActivity">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
+        android:drawableLeft="@drawable/vector_drawable_back"
+        android:gravity="center_vertical"
+        android:text="@string/swap_name"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/title_text_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.winnie.widget.swap.SwapViewGroup
+        android:id="@+id/dg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_margin="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:viewColumn="3">
+
+        <include layout="@layout/view_drag_list_item" />
+
+        <include layout="@layout/view_drag_list_item" />
+
+        <include layout="@layout/view_drag_list_item" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#cccccc"
+                android:gravity="center"
+                android:text="我是第一个" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#cccccc"
+                android:gravity="center"
+                android:text="我是第二个" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#cccccc"
+                android:gravity="center"
+                android:text="我是第三个" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#cccccc"
+                android:gravity="center"
+                android:text="我是第四个" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#cccccc"
+                android:gravity="center"
+                android:text="我是第五个" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#cccccc"
+                android:gravity="center"
+                android:text="我是第六个" />
+        </RelativeLayout>
+
+
+    </com.winnie.widget.swap.SwapViewGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

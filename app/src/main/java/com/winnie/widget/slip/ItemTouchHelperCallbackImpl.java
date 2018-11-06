@@ -1,4 +1,4 @@
-package com.winnie.widget;
+package com.winnie.widget.slip;
 
 import android.graphics.Canvas;
 import android.view.View;

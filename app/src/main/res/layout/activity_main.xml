@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorWhite"
     tools:context=".MainActivity">
 
     <TextView
@@ -17,11 +17,25 @@
         android:textColor="@color/colorWhite"
         android:textSize="20dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_list"
+    <Button
+        android:id="@+id/slip_del_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layoutManager="GridLayoutManager"
-        tools:listitem="@layout/view_list_item" />
+        android:text="@string/slip_name"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/drag_del_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/drag_name"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/slip_swap_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/swap_name"
+        android:textAllCaps="false"/>
 
 </LinearLayout>
