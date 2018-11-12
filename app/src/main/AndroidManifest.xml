@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".slip.SlipDelActivity" />
         <activity android:name=".drag.DragDelActivity" />
-        <activity android:name=".swap.SwapActivity"></activity>
+        <activity android:name=".swap.SwapActivity"/>
     </application>
 
 </manifest>
