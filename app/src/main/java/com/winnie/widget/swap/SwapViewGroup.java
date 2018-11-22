@@ -81,6 +81,7 @@ public class SwapViewGroup extends ViewGroup implements ViewDragCallBack {
     private void initAttrs(Context context, AttributeSet attrs) {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.SwapViewGroup);
         mViewColumn = ta.getInteger(R.styleable.SwapViewGroup_viewColumn, 1);
+        ta.recycle();
     }
 
     @Override
